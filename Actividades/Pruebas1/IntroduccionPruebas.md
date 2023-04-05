@@ -99,36 +99,29 @@ Evalúe la calidad de cada una de las siguientes particiones candidatas. ¿Son l
 // particion: x < 0; x >= 0
 ```
 
-- Los subdominios son disjuntos 
-- Los subdominios están completos 
-- Los subdominios son correctos
+- Los subdominios son disjuntos ( VERDADERO )
+- Los subdominios están completos ( VERDADERO ) sí, incluye todo el epacio de entrada.
+- Los subdominios son correctos (FALSO)
+No son correctos, puesto que no se puede evaluar los valores menores que 0.
 
-```
-R: Los subdominios están completos.
-```
 
 ```
 // particion: x es un cuadrado perfecto; x es > 0 pero no es un cuadrado perfecto
 
 ```
 
-- Los subdominios son disjuntos 
-- Los subdominios están completos 
-- Los subdominios son correctos
+- Los subdominios son disjuntos ( VERDADERO )
+- Los subdominios están completos ( VERDADERO )
+- Los subdominios son correctos ( VERDADERO )
+Los subdominios son disjuntos, completos(incluyen todo el espacio de entrada) y se pueden construir pruebas legales para un elemento de cualquier subdominio.
 
 ```
-R: Los subdominios están completos.
-```
-
 // particion: x=0, x=1, x=7, x=16
+``` 
 
-- Los subdominios son disjuntos 
-- Los subdominios están completos 
-- Los subdominios son correctos
-
-```
-R: Los subdominios son correctos.
-```
+- Los subdominios son disjuntos( VERDADERO )
+- Los subdominios están completos (FALSO)
+- Los subdominios son correctos (FALSO)
 
 **Ejercicio 6**
 
@@ -150,24 +143,17 @@ Evalúa cada una de las siguientes particiones candidatas para gcd.
 // particion: x e y no son  0
 ``` 
 
-- Los subdominios son disjuntos 
-- Los subdominios están completos 
-- Los subdominios son correctos
-
-```
-R: Los subdominios están completos.
-```
+- Los subdominios son disjuntos (VERDADERO) Solo es un conjunto.
+- Los subdominios están completos (VERDADERO) Es una partición trivial.
+- Los subdominios son correctos (FALSO) Es demasiado trivial para ser de utilidad.
 
 ```
 // particion: x es divisible por y; y es divisible por x; x e y son primeros relativos
 ```
-- Los subdominios son disjuntos 
-- Los subdominios están completos 
-- Los subdominios son correctos
-
-```
-R: Los subdominios son correctos.
-```
+`
+- Los subdominios son disjuntos (FALSO)
+- Los subdominios están completos (FALSO) Ejm: El par ordenado (4,6) no pertenece a ninguno de los subdominios.
+- Los subdominios son correctos (FALSO)
 
 **Ejercicio 7**
 
@@ -182,15 +168,9 @@ Para esta función:
 double winLossRatio(String winsAndLosses);
 ```
 ¿Cuáles son los valores límite apropiados para probar esta función?
-
-```
-R:
--""
--"WWWWW"
--"LLLLL"
--"WL
-```
-
+5 W's o 5 L's.
+1 W y 4 L's
+1 L y 4 W's
 **Ejercicio 8**
 
 Considera la partición de `a` anterior:
@@ -208,19 +188,17 @@ Considera la partición de `a` anterior:
 Esta partición en realidad combina varios intereses distintos: el signo de `a`, la magnitud de `a` (pequeño o grande) y los valores límite 0 y 1. Podemos pensar en estos intereses como particiones independientes.
 De entre las opciones a continuación, elija un subconjunto que serían particiones legales y que juntas captarían los mismos intereses.
 
-- particion en a: `0, 1`
-- particion en a: `0`
-- particion en a: `1`
-- particion en a: `0`, positivo, negativo
-- particion en a: positivo, negativo
-- particion en a: `1, !=1`
+- particion en a: `0, 1`                       I
+- particion en a: `0`                          II
+- particion en a: `1`                          III
+- particion en a: `0`, positivo, negativo      IV
+- particion en a: positivo, negativo           V
+- particion en a: `1, !=1`                     VI
 - particion en a: (donde "pequeño" encaja en long y "grande" no)
-
-```
-R:
--particion en a: 0, positivo, negativo
--particion en a: (donde "pequeño" encaja en long y "grande" no)
-```
+II y V
+V
+VI
+IV
 
 **Ejercicio 9**
 
@@ -247,10 +225,11 @@ Supongamos que usamos estas tres particiones de a en su lugar:
 ```
 
 Si solo queremos cubrir cada subdominio de las tres particiones, ¿cuántos valores diferentes de a necesitaríamos?.
+RPTA:
+Si escojo el 0 y el 1, cubro la partición 0, 1, !=1, y "Pequeño"(que encaja en long)
+Y si agrego un número negativo muy grande entonces cubro, el "grande" que no encaja en long.
+Es decir, solo necesito 3 números: 0, 1, (un número negativo muy grande)
 
-```
-R: Dado que las 3 particiones cubren el mismo interes que la particion original y dado que en esta hay 6 subdominios, entonces deberiamos encontrar 6 valores de a para caca uno de ellos. Por lo tanto necesitamos al menos 6 valores de a. Para cubrir cada subdominio de las 3 particiones necesitamos encontrar 2 valores diferentes para particion, lo que da un total de 6.
-```
 
 **Ejercicio 10**
 
@@ -275,11 +254,6 @@ Con este enfoque, ¿cuántos casos de prueba se necesitan para cubrir las siguie
 // particion en b: 0, positive, negativo
 // particion en a.multiply(b): 0, positivo, negativo
 ````
+RPTA: Solamente 3, una donde el resultado de a*b sea 0, otra donde sea positivo, y otro donde sea negativo.
 
-```
-R:
--Para la particion en a: 0, positivo, negativo necesitamos un valor de a para cada subdominio (3 valores)
--Para la particion en b: 0, positivo, negativo necesitamos un valor de b para cada subdominio (3 valores)
--Para la particion en a.multiply(b): 0, positivo, negativo necesitamos un par de (a,b) para cada subdominio (3 valores)
-Un total de 9 casos de prueba.
-```
+

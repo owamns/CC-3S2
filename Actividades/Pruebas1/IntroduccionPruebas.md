@@ -121,7 +121,6 @@ R: Los subdominios están completos.
 ```
 
 // particion: x=0, x=1, x=7, x=16
-``` 
 
 - Los subdominios son disjuntos 
 - Los subdominios están completos 

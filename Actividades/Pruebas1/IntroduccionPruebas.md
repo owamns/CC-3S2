@@ -23,9 +23,21 @@ boolean andAll(boolean[] bits) {
 Abejita, quien escribió este método y cree que debería funcionar, lo prueba en un par de casos de prueba elegidos al azar que se muestran a continuación. ¿Cuál es el resultado de cada caso de prueba? 
 
 - `andAll([true, true, true, ..., true, true]) // 32 valores true` 
+```
+R: True
+```
 - `andAll([false, true, false, true, ..., false, true]) // 32 valores alternando entre false y true ` 
-- Jessica dice que todo está OK. Pero desafortunadamente su código tiene un error off-by-one . ¿Qué expresión tiene el error? 
+```
+R: False
+```
+- Jessica dice que todo está OK. Pero desafortunadamente su código tiene un error off-by-one . ¿Qué expresión tiene el error?
+```
+R: for (int i = 1; i < 31; i++)
+```
 - ¿Cuál podría ser el número de casos de prueba requeridos para probar esta función exhaustivamente?
+```
+R: se necesitarían todos los posibles casos de entrada, que en este caso son 2^32 posibles combinaciones de valores true y false en el arreglo de 32 bits. Por lo tanto, se requerirían 2^32 casos de prueba para una prueba exhaustiva.
+```
 
 **Ejercicio 2**
 
@@ -37,6 +49,11 @@ En la década de 1990, el vehículo de lanzamiento Ariane 5, diseñado y constru
 - Probar todas las entradas posibles es la mejor solución a este problema. 
 - El software exhibe un comportamiento discontinuo, a diferencia de muchos sistemas diseñados físicamente. 
 - La verificación de tipos estáticos podría haber detectado este error.
+```
+R: 
+- Incluso el software crítico para la seguridad de alta calidad puede tener errores residuales.
+- El software exhibe un comportamiento discontinuo, a diferencia de muchos sistemas diseñados físicamente. 
+```
 
 **Ejercicio 3**
 
@@ -46,6 +63,11 @@ Un conjunto de pruebas es correcto si:
 - Algún caso de prueba falla cuando se ejecuta en una implementación con errores
 - Todos sus casos de prueba pasan cuando se ejecutan en una implementación legal 
 - algunos casos de prueba pasan cuando se ejecutan en una implementación legal 
+```
+R: 
+-Todos sus casos de prueba pasan cuando se ejecutan en una implementación legal.
+- algunos casos de prueba pasan cuando se ejecutan en una implementación legal.
+```
 
 **Ejercicio 4**
 
@@ -54,6 +76,10 @@ Un conjunto de pruebas vacío no contiene casos de prueba. Suponiendo una especi
 - Correcto 
 - Exhaustivo 
 - Pequeña
+
+```
+R: Correcto
+```
 
 **Ejercicios 5**
 
@@ -77,6 +103,9 @@ Evalúe la calidad de cada una de las siguientes particiones candidatas. ¿Son l
 - Los subdominios están completos 
 - Los subdominios son correctos
 
+```
+R: Los subdominios están completos.
+```
 
 ```
 // particion: x es un cuadrado perfecto; x es > 0 pero no es un cuadrado perfecto
@@ -88,6 +117,9 @@ Evalúe la calidad de cada una de las siguientes particiones candidatas. ¿Son l
 - Los subdominios son correctos
 
 ```
+R: Los subdominios están completos.
+```
+
 // particion: x=0, x=1, x=7, x=16
 ``` 
 
@@ -95,6 +127,9 @@ Evalúe la calidad de cada una de las siguientes particiones candidatas. ¿Son l
 - Los subdominios están completos 
 - Los subdominios son correctos
 
+```
+R: Los subdominios son correctos.
+```
 
 **Ejercicio 6**
 
@@ -121,11 +156,19 @@ Evalúa cada una de las siguientes particiones candidatas para gcd.
 - Los subdominios son correctos
 
 ```
+R: Los subdominios están completos.
+```
+
+```
 // particion: x es divisible por y; y es divisible por x; x e y son primeros relativos
 ```
 - Los subdominios son disjuntos 
 - Los subdominios están completos 
 - Los subdominios son correctos
+
+```
+R: Los subdominios son correctos.
+```
 
 **Ejercicio 7**
 
@@ -140,6 +183,14 @@ Para esta función:
 double winLossRatio(String winsAndLosses);
 ```
 ¿Cuáles son los valores límite apropiados para probar esta función?
+
+```
+R:
+-""
+-"WWWWW"
+-"LLLLL"
+-"WL
+```
 
 **Ejercicio 8**
 
@@ -165,6 +216,12 @@ De entre las opciones a continuación, elija un subconjunto que serían particio
 - particion en a: positivo, negativo
 - particion en a: `1, !=1`
 - particion en a: (donde "pequeño" encaja en long y "grande" no)
+
+```
+R:
+-particion en a: 0, positivo, negativo
+-particion en a: (donde "pequeño" encaja en long y "grande" no)
+```
 
 **Ejercicio 9**
 
@@ -192,6 +249,10 @@ Supongamos que usamos estas tres particiones de a en su lugar:
 
 Si solo queremos cubrir cada subdominio de las tres particiones, ¿cuántos valores diferentes de a necesitaríamos?.
 
+```
+R: Dado que las 3 particiones cubren el mismo interes que la particion original y dado que en esta hay 6 subdominios, entonces deberiamos encontrar 6 valores de a para caca uno de ellos. Por lo tanto necesitamos al menos 6 valores de a. Para cubrir cada subdominio de las 3 particiones necesitamos encontrar 2 valores diferentes para particion, lo que da un total de 6.
+```
+
 **Ejercicio 10**
 
 A veces es conveniente pensar y escribir una partición de espacio de entrada en términos de la salida de la función, porque las variaciones en el comportamiento pueden ser más visibles allí. Por ejemplo: 
@@ -215,3 +276,11 @@ Con este enfoque, ¿cuántos casos de prueba se necesitan para cubrir las siguie
 // particion en b: 0, positive, negativo
 // particion en a.multiply(b): 0, positivo, negativo
 ````
+
+```
+R:
+-Para la particion en a: 0, positivo, negativo necesitamos un valor de a para cada subdominio (3 valores)
+-Para la particion en b: 0, positivo, negativo necesitamos un valor de b para cada subdominio (3 valores)
+-Para la particion en a.multiply(b): 0, positivo, negativo necesitamos un par de (a,b) para cada subdominio (3 valores)
+Un total de 9 casos de prueba.
+```
